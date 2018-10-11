@@ -16,6 +16,22 @@ endfunction
 N = ode(N0, t(1), t, malthus);
 
 // Wykres
+subplot(2, 2, 1);
 plot(t, N);
 xtitle("Model Malthusa", "Czas [min]", "Liczebność");
+xinfo("Masa bakterii po 24h: " + string(N($) * mb) + "kg");
+
+subplot(2, 2, 2);
+plot(t, log10(N));
+xtitle("Model Malthusa log10", "Czas [min]", "Liczebność");
+xinfo("Masa bakterii po 24h: " + string(N($) * mb) + "kg");
+
+subplot(2, 2, 3);
+plot(t, sqrt(N));
+xtitle("Model Malthusa sqrt", "Czas [min]", "Liczebność");
+xinfo("Masa bakterii po 24h: " + string(N($) * mb) + "kg");
+
+subplot(2, 2, 4);
+plot(t, N^(1/3));
+xtitle("Model Malthusa cbrt", "Czas [min]", "Liczebność");
 xinfo("Masa bakterii po 24h: " + string(N($) * mb) + "kg");
